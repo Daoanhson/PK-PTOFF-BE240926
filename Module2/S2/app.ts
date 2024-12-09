@@ -18,20 +18,28 @@
 // }
 
 let arr: number[];
-arr=[3,42,2,5,6,25,53,7,70];
+arr=[3,42,2,5,6,25,53,7,70,8];
 
 
-// Hàm đếm các số lớn hơn or = 10 
-function demso(so: number[]): number{
-    let count=0;
-    for (let i of so) {
-        if(i >=10){
-            count++; 
+// Tim gt lon nhat va nho nhat cung gia tri
+function finnumber(array: number[]): { min: number; minIndex: number; max: number; maxIndex: number } {
+    let min = array[0];
+    let max = array[0];
+    let minIndex = 0;
+    let maxIndex = 0;
+
+    for (let i = 1; i < 11; i++) {
+        if (array[i] < min) {
+            min = array[i];
+            minIndex = i;
+        }
+        if (array[i] > max) {
+            max = array[i];
+            maxIndex = i;
         }
     }
-    return count;
+
+    return { min, minIndex, max, maxIndex };
 }
 
-console.log(demso(arr))
-
-
+console.log(finnumber(arr))
